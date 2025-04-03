@@ -4,8 +4,6 @@ const quoteText = document.querySelector(".quote"),
   speechBtn = document.querySelector(".speech"),
   copyBtn = document.querySelector(".copy"),
   twitterBtn = document.querySelector(".twitter"),
-  snapchatBtn = document.querySelector(".snapchat"), // Added Snapchat
-  instagramBtn = document.querySelector(".instagram"), // Added Instagram
   synth = speechSynthesis;
 
 function randomQuote() {
@@ -63,24 +61,4 @@ twitterBtn.addEventListener("click", () => {
     quoteText.innerText + " - " + authorName.innerText
   )}`;
   window.open(tweetUrl, "_blank");
-});
-
-// Snapchat Share
-snapchatBtn.addEventListener("click", () => {
-  let quote = `${quoteText.innerText} - ${authorName.innerText}`;
-  let snapLensUrl = `https://lens.snapchat.com/b2da6f0c7fc847e38ee263a2063b86e1?share_id=2NMkwpbQ22A&locale=en-IN&metadata=${encodeURIComponent(quote)}`;
-
-  // Open Snapchat Lens with the quote
-  window.open(snapLensUrl, "_blank");
-});
-
-// Instagram Share (works on mobile only)
-instagramBtn.addEventListener("click", () => {
-  let quote = `${quoteText.innerText} - ${authorName.innerText}`;
-
-  // Open Instagram Story with text
-  let instagramUrl = `instagram://story?source_application=com.yourappname&text=${encodeURIComponent(quote)}`;
-
-  // Open the Instagram app
-  window.location.href = instagramUrl;
 });
